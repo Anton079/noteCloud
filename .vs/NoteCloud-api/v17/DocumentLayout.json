@@ -1,0 +1,904 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\mycode\\asp.net\\NoteCloud-api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notes\\controllers\\notescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notes\\controllers\\notescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notes\\dto\\notecreaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notes\\dto\\notecreaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\users\\dto\\userrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\users\\dto\\userrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\dto\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\dto\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\users\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\users\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\users\\service\\commandserviceuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\users\\service\\commandserviceuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\service\\userauthenticator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\service\\userauthenticator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\service\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\service\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\service\\rolepermissionresolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\service\\rolepermissionresolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\models\\authdefaults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\models\\authdefaults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\service\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\service\\jwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\service\\iuserauthenticator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\service\\iuserauthenticator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\service\\irolepermissionresolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\service\\irolepermissionresolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\service\\ijwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\service\\ijwttokengenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\models\\systemroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\models\\systemroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\models\\rolepermissionsoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\models\\rolepermissionsoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\models\\jwtoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\models\\jwtoptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\models\\generatedjwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\models\\generatedjwt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\auth\\models\\authenticateduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\auth\\models\\authenticateduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Horia\\AppData\\Local\\Temp\\6f00fe65-4f5d-4ad4-90ef-65cac78a6aa1_NoteCloud-api-auth.zip.aa1\\NoteCloud-api\\NoteCloud-api\\Auth\\Controller\\AuthController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\system\\id\\idgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\system\\id\\idgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notes\\service\\queryservicenote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notes\\service\\queryservicenote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notes\\service\\commandservicenote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notes\\service\\commandservicenote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notes\\service\\iqueryservicenote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notes\\service\\iqueryservicenote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notes\\service\\icommandservicenote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notes\\service\\icommandservicenote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notes\\repository\\noterepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notes\\repository\\noterepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notes\\repository\\inoterepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notes\\repository\\inoterepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\users\\service\\icommandserviceuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\users\\service\\icommandserviceuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\users\\service\\iqueryserviceuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\users\\service\\iqueryserviceuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\users\\service\\queryserviceuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\users\\service\\queryserviceuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\users\\repository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\users\\repository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\users\\repository\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\users\\repository\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\system\\exceptions\\notealreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\system\\exceptions\\notealreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\system\\exceptions\\notenotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\system\\exceptions\\notenotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\system\\exceptions\\useralreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\system\\exceptions\\useralreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\system\\exceptions\\usernotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\system\\exceptions\\usernotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\system\\exceptions\\invalidoperationexceptionnotecloud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\system\\exceptions\\invalidoperationexceptionnotecloud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\system\\exceptions\\invalidloginexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\system\\exceptions\\invalidloginexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\system\\exceptionmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\system\\exceptionmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notes\\mappers\\notemappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notes\\mappers\\notemappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notes\\dto\\noteresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notes\\dto\\noteresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notes\\dto\\noteupdaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notes\\dto\\noteupdaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notes\\dto\\noterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notes\\dto\\noterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\users\\mappers\\usermappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\users\\mappers\\usermappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\users\\dto\\userresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\users\\dto\\userresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\users\\dto\\userupdaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\users\\dto\\userupdaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\data\\migrations\\createschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\data\\migrations\\createschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notecloud-api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notecloud-api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\notes\\models\\note.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\notes\\models\\note.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|c:\\mycode\\asp.net\\notecloud-api\\notecloud-api\\users\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95F7597-D912-4EEF-BA44-A0646E0AEBA6}|NoteCloud-api\\NoteCloud-api.csproj|solutionrelative:notecloud-api\\users\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 367,
+          "SelectedChildIndex": 15,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NoteCreateRequest.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Dto\\NoteCreateRequest.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Notes\\Dto\\NoteCreateRequest.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Dto\\NoteCreateRequest.cs",
+              "RelativeToolTip": "NoteCloud-api\\Notes\\Dto\\NoteCreateRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T14:38:20.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IUserAuthenticator.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\IUserAuthenticator.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Service\\IUserAuthenticator.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\IUserAuthenticator.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Service\\IUserAuthenticator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:41:51.531Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IRolePermissionResolver.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\IRolePermissionResolver.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Service\\IRolePermissionResolver.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\IRolePermissionResolver.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Service\\IRolePermissionResolver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:41:42.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IJwtTokenGenerator.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\IJwtTokenGenerator.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Service\\IJwtTokenGenerator.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\IJwtTokenGenerator.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Service\\IJwtTokenGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:41:35.177Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SystemRoles.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Models\\SystemRoles.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Models\\SystemRoles.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Models\\SystemRoles.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Models\\SystemRoles.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:41:11.937Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "RolePermissionsOptions.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Models\\RolePermissionsOptions.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Models\\RolePermissionsOptions.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Models\\RolePermissionsOptions.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Models\\RolePermissionsOptions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:41:02.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "JwtOptions.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Models\\JwtOptions.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Models\\JwtOptions.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Models\\JwtOptions.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Models\\JwtOptions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:40:09.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "GeneratedJwt.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Models\\GeneratedJwt.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Models\\GeneratedJwt.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Models\\GeneratedJwt.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Models\\GeneratedJwt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:40:02.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Program.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Program.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Program.cs",
+              "RelativeToolTip": "NoteCloud-api\\Program.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAswJYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T11:31:29.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\appsettings.json",
+              "RelativeDocumentMoniker": "NoteCloud-api\\appsettings.json",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\appsettings.json",
+              "RelativeToolTip": "NoteCloud-api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-28T11:33:21.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Users\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "NoteCloud-api\\Users\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAqwIkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T14:07:06.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Controller\\AuthController.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Controller\\AuthController.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Controller\\AuthController.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Controller\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:39:12.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RegisterRequest.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Dto\\RegisterRequest.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Dto\\RegisterRequest.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Dto\\RegisterRequest.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Dto\\RegisterRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T14:15:10.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NotesController.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Controllers\\NotesController.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Notes\\Controllers\\NotesController.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Controllers\\NotesController.cs",
+              "RelativeToolTip": "NoteCloud-api\\Notes\\Controllers\\NotesController.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAEwE0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T14:07:18.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RolePermissionResolver.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\RolePermissionResolver.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Service\\RolePermissionResolver.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\RolePermissionResolver.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Service\\RolePermissionResolver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAACFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:42:09.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserRequest.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Dto\\UserRequest.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Users\\Dto\\UserRequest.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Dto\\UserRequest.cs",
+              "RelativeToolTip": "NoteCloud-api\\Users\\Dto\\UserRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:27:06.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserAuthenticator.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\UserAuthenticator.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Service\\UserAuthenticator.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\UserAuthenticator.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Service\\UserAuthenticator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:42:18.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PasswordHasher.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\PasswordHasher.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Service\\PasswordHasher.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\PasswordHasher.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Service\\PasswordHasher.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:58:54.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AuthenticatedUser.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Models\\AuthenticatedUser.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Models\\AuthenticatedUser.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Models\\AuthenticatedUser.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Models\\AuthenticatedUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:39:52.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AuthDefaults.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Models\\AuthDefaults.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Models\\AuthDefaults.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Models\\AuthDefaults.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Models\\AuthDefaults.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:39:41.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CommandServiceUser.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Service\\CommandServiceUser.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Users\\Service\\CommandServiceUser.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Service\\CommandServiceUser.cs",
+              "RelativeToolTip": "NoteCloud-api\\Users\\Service\\CommandServiceUser.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA1wB8AAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:23:21.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "JwtTokenGenerator.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\JwtTokenGenerator.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Auth\\Service\\JwtTokenGenerator.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Auth\\Service\\JwtTokenGenerator.cs",
+              "RelativeToolTip": "NoteCloud-api\\Auth\\Service\\JwtTokenGenerator.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAwEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:42:00.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Horia\\AppData\\Local\\Temp\\6f00fe65-4f5d-4ad4-90ef-65cac78a6aa1_NoteCloud-api-auth.zip.aa1\\NoteCloud-api\\NoteCloud-api\\Auth\\Controller\\AuthController.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\Horia\\AppData\\Local\\Temp\\6f00fe65-4f5d-4ad4-90ef-65cac78a6aa1_NoteCloud-api-auth.zip.aa1\\NoteCloud-api\\NoteCloud-api\\Auth\\Controller\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Horia\\AppData\\Local\\Temp\\6f00fe65-4f5d-4ad4-90ef-65cac78a6aa1_NoteCloud-api-auth.zip.aa1\\NoteCloud-api\\NoteCloud-api\\Auth\\Controller\\AuthController.cs [Read Only]",
+              "RelativeToolTip": "..\\..\\..\\Users\\Horia\\AppData\\Local\\Temp\\6f00fe65-4f5d-4ad4-90ef-65cac78a6aa1_NoteCloud-api-auth.zip.aa1\\NoteCloud-api\\NoteCloud-api\\Auth\\Controller\\AuthController.cs [Read Only]",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:34:44.676Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IdGenerator.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Id\\IdGenerator.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\System\\Id\\IdGenerator.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Id\\IdGenerator.cs",
+              "RelativeToolTip": "NoteCloud-api\\System\\Id\\IdGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T13:06:29.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "IUserRepo.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Repository\\IUserRepo.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Users\\Repository\\IUserRepo.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Repository\\IUserRepo.cs",
+              "RelativeToolTip": "NoteCloud-api\\Users\\Repository\\IUserRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:22:34.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "UserRepo.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Repository\\UserRepo.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Users\\Repository\\UserRepo.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Repository\\UserRepo.cs",
+              "RelativeToolTip": "NoteCloud-api\\Users\\Repository\\UserRepo.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAwD8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:22:39.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ICommandServiceUser.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Service\\ICommandServiceUser.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Users\\Service\\ICommandServiceUser.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Service\\ICommandServiceUser.cs",
+              "RelativeToolTip": "NoteCloud-api\\Users\\Service\\ICommandServiceUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:23:15.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "IQueryServiceUser.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Service\\IQueryServiceUser.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Users\\Service\\IQueryServiceUser.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Service\\IQueryServiceUser.cs",
+              "RelativeToolTip": "NoteCloud-api\\Users\\Service\\IQueryServiceUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:23:29.817Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "QueryServiceUser.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Service\\QueryServiceUser.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Users\\Service\\QueryServiceUser.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Service\\QueryServiceUser.cs",
+              "RelativeToolTip": "NoteCloud-api\\Users\\Service\\QueryServiceUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:23:37.063Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "INoteRepo.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Repository\\INoteRepo.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Notes\\Repository\\INoteRepo.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Repository\\INoteRepo.cs",
+              "RelativeToolTip": "NoteCloud-api\\Notes\\Repository\\INoteRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:23:58.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "NoteRepo.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Repository\\NoteRepo.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Notes\\Repository\\NoteRepo.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Repository\\NoteRepo.cs",
+              "RelativeToolTip": "NoteCloud-api\\Notes\\Repository\\NoteRepo.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAwEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:24:03.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ICommandServiceNote.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Service\\ICommandServiceNote.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Notes\\Service\\ICommandServiceNote.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Service\\ICommandServiceNote.cs",
+              "RelativeToolTip": "NoteCloud-api\\Notes\\Service\\ICommandServiceNote.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:24:13.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IQueryServiceNote.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Service\\IQueryServiceNote.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Notes\\Service\\IQueryServiceNote.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Service\\IQueryServiceNote.cs",
+              "RelativeToolTip": "NoteCloud-api\\Notes\\Service\\IQueryServiceNote.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:24:31.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "CommandServiceNote.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Service\\CommandServiceNote.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Notes\\Service\\CommandServiceNote.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Service\\CommandServiceNote.cs",
+              "RelativeToolTip": "NoteCloud-api\\Notes\\Service\\CommandServiceNote.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAwFAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:24:20.636Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "QueryServiceNote.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Service\\QueryServiceNote.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Notes\\Service\\QueryServiceNote.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Service\\QueryServiceNote.cs",
+              "RelativeToolTip": "NoteCloud-api\\Notes\\Service\\QueryServiceNote.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:24:39.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "NoteAlreadyExistsException.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Exceptions\\NoteAlreadyExistsException.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\System\\Exceptions\\NoteAlreadyExistsException.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Exceptions\\NoteAlreadyExistsException.cs",
+              "RelativeToolTip": "NoteCloud-api\\System\\Exceptions\\NoteAlreadyExistsException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:38:23.087Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "NoteNotFoundException.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Exceptions\\NoteNotFoundException.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\System\\Exceptions\\NoteNotFoundException.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Exceptions\\NoteNotFoundException.cs",
+              "RelativeToolTip": "NoteCloud-api\\System\\Exceptions\\NoteNotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:38:17.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "UserAlreadyExistsException.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Exceptions\\UserAlreadyExistsException.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\System\\Exceptions\\UserAlreadyExistsException.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Exceptions\\UserAlreadyExistsException.cs",
+              "RelativeToolTip": "NoteCloud-api\\System\\Exceptions\\UserAlreadyExistsException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:38:09.365Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "UserNotFoundException.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Exceptions\\UserNotFoundException.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\System\\Exceptions\\UserNotFoundException.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Exceptions\\UserNotFoundException.cs",
+              "RelativeToolTip": "NoteCloud-api\\System\\Exceptions\\UserNotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:38:02.632Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "InvalidOperationExceptionNoteCloud.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Exceptions\\InvalidOperationExceptionNoteCloud.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\System\\Exceptions\\InvalidOperationExceptionNoteCloud.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Exceptions\\InvalidOperationExceptionNoteCloud.cs",
+              "RelativeToolTip": "NoteCloud-api\\System\\Exceptions\\InvalidOperationExceptionNoteCloud.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:37:55.692Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "InvalidLoginException.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Exceptions\\InvalidLoginException.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\System\\Exceptions\\InvalidLoginException.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\Exceptions\\InvalidLoginException.cs",
+              "RelativeToolTip": "NoteCloud-api\\System\\Exceptions\\InvalidLoginException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:37:48.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "ExceptionMessage.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\ExceptionMessage.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\System\\ExceptionMessage.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\System\\ExceptionMessage.cs",
+              "RelativeToolTip": "NoteCloud-api\\System\\ExceptionMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:36:48.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "NoteMappingProfile.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Mappers\\NoteMappingProfile.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Notes\\Mappers\\NoteMappingProfile.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Mappers\\NoteMappingProfile.cs",
+              "RelativeToolTip": "NoteCloud-api\\Notes\\Mappers\\NoteMappingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:28:58.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "NoteResponse.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Dto\\NoteResponse.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Notes\\Dto\\NoteResponse.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Dto\\NoteResponse.cs",
+              "RelativeToolTip": "NoteCloud-api\\Notes\\Dto\\NoteResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:28:17.684Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "NoteUpdateRequest.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Dto\\NoteUpdateRequest.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Notes\\Dto\\NoteUpdateRequest.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Dto\\NoteUpdateRequest.cs",
+              "RelativeToolTip": "NoteCloud-api\\Notes\\Dto\\NoteUpdateRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:28:04.775Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "NoteRequest.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Dto\\NoteRequest.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Notes\\Dto\\NoteRequest.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Dto\\NoteRequest.cs",
+              "RelativeToolTip": "NoteCloud-api\\Notes\\Dto\\NoteRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:27:57.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "UserMappingProfile.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Mappers\\UserMappingProfile.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Users\\Mappers\\UserMappingProfile.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Mappers\\UserMappingProfile.cs",
+              "RelativeToolTip": "NoteCloud-api\\Users\\Mappers\\UserMappingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:27:43.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "UserResponse.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Dto\\UserResponse.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Users\\Dto\\UserResponse.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Dto\\UserResponse.cs",
+              "RelativeToolTip": "NoteCloud-api\\Users\\Dto\\UserResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:27:32.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "UserUpdateRequest.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Dto\\UserUpdateRequest.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Users\\Dto\\UserUpdateRequest.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Dto\\UserUpdateRequest.cs",
+              "RelativeToolTip": "NoteCloud-api\\Users\\Dto\\UserUpdateRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T12:27:16.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "CreateSchema.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Data\\Migrations\\CreateSchema.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Data\\Migrations\\CreateSchema.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Data\\Migrations\\CreateSchema.cs",
+              "RelativeToolTip": "NoteCloud-api\\Data\\Migrations\\CreateSchema.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T11:33:02.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "NoteCloud-api.csproj",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\NoteCloud-api.csproj",
+              "RelativeDocumentMoniker": "NoteCloud-api\\NoteCloud-api.csproj",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\NoteCloud-api.csproj",
+              "RelativeToolTip": "NoteCloud-api\\NoteCloud-api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-28T11:31:38.414Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "NoteCloud-api\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAIwAEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T11:31:17.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Models\\User.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Users\\Models\\User.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Users\\Models\\User.cs",
+              "RelativeToolTip": "NoteCloud-api\\Users\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:18:36.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "Note.cs",
+              "DocumentMoniker": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Models\\Note.cs",
+              "RelativeDocumentMoniker": "NoteCloud-api\\Notes\\Models\\Note.cs",
+              "ToolTip": "C:\\mycode\\asp.net\\NoteCloud-api\\NoteCloud-api\\Notes\\Models\\Note.cs",
+              "RelativeToolTip": "NoteCloud-api\\Notes\\Models\\Note.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T01:12:24.971Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
