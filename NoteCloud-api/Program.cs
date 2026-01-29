@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using MySqlConnector;
 using NoteCloud_api.Auth.Models;
 using NoteCloud_api.Auth.Services;
 using NoteCloud_api.Data;
@@ -59,6 +60,9 @@ public class Program
                       .AllowAnyHeader()
                       .AllowAnyMethod()));
 
+        var connectionString = builder.Configuration.GetConnectionString("Default")!;
+        EnsureDatabaseExists(connectionString);
+
         var jwtSection = builder.Configuration.GetSection("Jwt");
         var key = Encoding.UTF8.GetBytes(jwtSection["Key"] ?? "");
 
@@ -73,6 +77,8 @@ public class Program
             options.SaveToken = true;
             options.TokenValidationParameters = new TokenValidationParameters
             {
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.FromMinutes(1),
                 ValidateIssuer = true,
                 ValidateAudience = true,
                 ValidateIssuerSigningKey = true,
@@ -102,7 +108,7 @@ public class Program
 
         builder.Services.AddDbContext<AppDbContext>(options =>
             options.UseMySql(
-                builder.Configuration.GetConnectionString("Default")!,
+                connectionString,
                 new MySqlServerVersion(new Version(8, 0, 21))));
 
         builder.Services.AddScoped<IUserRepo, UserRepo>();
@@ -154,5 +160,29 @@ public class Program
 
         app.MapControllers();
         app.Run();
+    }
+
+    private static void EnsureDatabaseExists(string connectionString)
+    {
+        if (string.IsNullOrWhiteSpace(connectionString))
+        {
+            return;
+        }
+
+        var builder = new MySqlConnectionStringBuilder(connectionString);
+        var database = builder.Database;
+        if (string.IsNullOrWhiteSpace(database))
+        {
+            return;
+        }
+
+        builder.Database = string.Empty;
+
+        using var connection = new MySqlConnection(builder.ConnectionString);
+        connection.Open();
+
+        using var command = connection.CreateCommand();
+        command.CommandText = $"CREATE DATABASE IF NOT EXISTS `{database}`";
+        command.ExecuteNonQuery();
     }
 }

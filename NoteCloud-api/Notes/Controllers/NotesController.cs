@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using NoteCloud_api.Auth.Models;
 using NoteCloud_api.Notes.Dto;
 using NoteCloud_api.Notes.Exceptions;
 using NoteCloud_api.Notes.Service;
@@ -25,22 +27,28 @@ namespace NoteCloud_api.Notes.Controllers
         {
             try
             {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (string.IsNullOrWhiteSpace(userId))
+                    return Unauthorized(new { message = "Invalid user context." });
+
+                var isAdmin = User.IsInRole(SystemRoles.Admin);
+
                 if (!string.IsNullOrWhiteSpace(category))
                 {
-                    var byCategory = await _query.GetNotesByCategoryAsync(category);
+                    var byCategory = await _query.GetNotesByCategoryAsync(category, userId, isAdmin);
                     return Ok(byCategory);
                 }
 
-                var notes = await _query.GetAllNotesAsync();
+                var notes = await _query.GetAllNotesAsync(userId, isAdmin);
                 return Ok(notes);
             }
             catch (ArgumentException ex)
             {
                 return BadRequest(new { message = ex.Message });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new { message = "Internal server error." });
             }
         }
 
@@ -50,16 +58,22 @@ namespace NoteCloud_api.Notes.Controllers
         {
             try
             {
-                var note = await _query.FindNoteByIdAsync(id);
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (string.IsNullOrWhiteSpace(userId))
+                    return Unauthorized(new { message = "Invalid user context." });
+
+                var isAdmin = User.IsInRole(SystemRoles.Admin);
+
+                var note = await _query.FindNoteByIdAsync(id, userId, isAdmin);
                 return Ok(note);
             }
             catch (NoteNotFoundException ex)
             {
                 return NotFound(new { message = ex.Message });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new { message = "Internal server error." });
             }
         }
 
@@ -69,7 +83,11 @@ namespace NoteCloud_api.Notes.Controllers
         {
             try
             {
-                var created = await _command.CreateNote(req);
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (string.IsNullOrWhiteSpace(userId))
+                    return Unauthorized(new { message = "Invalid user context." });
+
+                var created = await _command.CreateNote(req, userId);
                 return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
             }
             catch (NoteAlreadyExistsException ex)
@@ -80,9 +98,9 @@ namespace NoteCloud_api.Notes.Controllers
             {
                 return BadRequest(new { message = ex.Message });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new { message = "Internal server error." });
             }
         }
 
@@ -93,7 +111,13 @@ namespace NoteCloud_api.Notes.Controllers
         {
             try
             {
-                var updated = await _command.UpdateNote(id, req);
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (string.IsNullOrWhiteSpace(userId))
+                    return Unauthorized(new { message = "Invalid user context." });
+
+                var isAdmin = User.IsInRole(SystemRoles.Admin);
+
+                var updated = await _command.UpdateNote(id, req, userId, isAdmin);
                 return Ok(updated);
             }
             catch (NoteNotFoundException ex)
@@ -104,9 +128,9 @@ namespace NoteCloud_api.Notes.Controllers
             {
                 return BadRequest(new { message = ex.Message });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new { message = "Internal server error." });
             }
         }
 
@@ -116,16 +140,22 @@ namespace NoteCloud_api.Notes.Controllers
         {
             try
             {
-                await _command.DeleteNote(id);
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (string.IsNullOrWhiteSpace(userId))
+                    return Unauthorized(new { message = "Invalid user context." });
+
+                var isAdmin = User.IsInRole(SystemRoles.Admin);
+
+                await _command.DeleteNote(id, userId, isAdmin);
                 return Ok(new { message = "Deleted" });
             }
             catch (NoteNotFoundException ex)
             {
                 return NotFound(new { message = ex.Message });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new { message = "Internal server error." });
             }
         }
     }

@@ -16,27 +16,36 @@ namespace NoteCloud_api.Notes.Service
             _mapper = mapper;
         }
 
-        public async Task<NoteResponse> FindNoteByIdAsync(int id)
+        public async Task<NoteResponse> FindNoteByIdAsync(int id, string userId, bool isAdmin)
         {
-            var note = await _repo.GetByIdAsync(id);
+            if (string.IsNullOrWhiteSpace(userId))
+                throw new ArgumentException("UserId este obligatoriu.");
+
+            var note = await _repo.GetByIdAsync(id, userId, isAdmin);
             if (note == null)
                 throw new NoteNotFoundException();
 
             return _mapper.Map<NoteResponse>(note);
         }
 
-        public async Task<List<NoteResponse>> GetAllNotesAsync()
+        public async Task<List<NoteResponse>> GetAllNotesAsync(string userId, bool isAdmin)
         {
-            var notes = await _repo.GetAllAsync();
+            if (string.IsNullOrWhiteSpace(userId))
+                throw new ArgumentException("UserId este obligatoriu.");
+
+            var notes = await _repo.GetAllAsync(userId, isAdmin);
             return _mapper.Map<List<NoteResponse>>(notes);
         }
 
-        public async Task<List<NoteResponse>> GetNotesByCategoryAsync(string category)
+        public async Task<List<NoteResponse>> GetNotesByCategoryAsync(string category, string userId, bool isAdmin)
         {
             if (string.IsNullOrWhiteSpace(category))
                 throw new ArgumentException("Category este obligatoriu.");
 
-            var notes = await _repo.GetByCategoryAsync(category);
+            if (string.IsNullOrWhiteSpace(userId))
+                throw new ArgumentException("UserId este obligatoriu.");
+
+            var notes = await _repo.GetByCategoryAsync(category, userId, isAdmin);
             return _mapper.Map<List<NoteResponse>>(notes);
         }
     }

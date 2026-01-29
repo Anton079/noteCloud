@@ -28,9 +28,9 @@ namespace NoteCloud_api.Users.Controllers
                 var users = await _query.GetAllUsersAsync();
                 return Ok(users);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new { message = "Internal server error." });
             }
         }
 
@@ -51,9 +51,9 @@ namespace NoteCloud_api.Users.Controllers
             {
                 return BadRequest(new { message = ex.Message });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new { message = "Internal server error." });
             }
         }
 
@@ -74,9 +74,9 @@ namespace NoteCloud_api.Users.Controllers
             {
                 return BadRequest(new { message = ex.Message });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new { message = "Internal server error." });
             }
         }
 
@@ -97,9 +97,9 @@ namespace NoteCloud_api.Users.Controllers
             {
                 return BadRequest(new { message = ex.Message });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new { message = "Internal server error." });
             }
         }
 
@@ -125,9 +125,9 @@ namespace NoteCloud_api.Users.Controllers
             {
                 return BadRequest(new { message = ex.Message });
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return StatusCode(500, new { message = ex.Message });
+                return StatusCode(500, new { message = "Internal server error." });
             }
         }
 

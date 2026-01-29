@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using NoteCloud_api.Notes.Models;
 
 namespace NoteCloud_api.Users.Models
 {
@@ -53,6 +54,7 @@ namespace NoteCloud_api.Users.Models
         [Column("refreshTokenExpiryTime", TypeName = "datetime")]
         public DateTime? RefreshTokenExpiryTime { get; set; }
 
+        public List<Note> Notes { get; set; } = new();
 
     }
 }

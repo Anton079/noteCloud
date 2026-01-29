@@ -74,7 +74,8 @@ namespace NoteCloud_api.Auth.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = ex.Message });
+                _logger.LogError(ex, "Unhandled error during registration.");
+                return StatusCode(500, new { message = "Internal server error." });
             }
         }
 

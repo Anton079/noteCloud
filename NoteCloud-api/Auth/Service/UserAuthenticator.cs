@@ -26,7 +26,7 @@ namespace NoteCloud_api.Auth.Services
                 return null;
             }
 
-            var normalizedUsername = username.Trim();
+            var normalizedUsername = username.Trim().ToLowerInvariant();
 
             if (_dbContext != null)
             {
@@ -100,17 +100,7 @@ namespace NoteCloud_api.Auth.Services
                     .ToDictionary(u => u.Username, u => u, StringComparer.OrdinalIgnoreCase);
             }
 
-            return new Dictionary<string, DefaultUser>(StringComparer.OrdinalIgnoreCase)
-            {
-                ["admin"] = new DefaultUser
-                {
-                    Id = "notecloud-admin",
-                    Username = "admin",
-                    Password = "admin",
-                    Role = SystemRoles.Admin,
-                    DisplayName = "Admin"
-                }
-            };
+            return new Dictionary<string, DefaultUser>(StringComparer.OrdinalIgnoreCase);
         }
     }
 }

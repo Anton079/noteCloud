@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using NoteCloud_api.Users.Models;
 
 namespace NoteCloud_api.Notes.Models
 {
@@ -22,6 +23,13 @@ namespace NoteCloud_api.Notes.Models
         [Required]
         [Column("category")]
         public string Category { get; set; }
+
+        [Required]
+        [Column("userId")]
+        [MaxLength(100)]
+        public string UserId { get; set; }
+
+        public User? User { get; set; }
 
         [Required]
         [Column("isFavorite")]

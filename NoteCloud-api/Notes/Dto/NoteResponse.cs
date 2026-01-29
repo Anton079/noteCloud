@@ -1,4 +1,4 @@
-﻿namespace NoteCloud_api.Notes.Dto
+namespace NoteCloud_api.Notes.Dto
 {
     public class NoteResponse
     {
@@ -8,5 +8,6 @@
         public string Category { get; set; } = default!;
         public bool IsFavorite { get; set; }
         public DateTime Date { get; set; }
+        public string UserId { get; set; } = default!;
     }
 }

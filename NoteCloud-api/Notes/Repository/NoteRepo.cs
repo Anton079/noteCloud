@@ -38,32 +38,52 @@ namespace NoteCloud_api.Notes.Repository
             return true;
         }
 
-        public async Task<Note?> GetByIdAsync(int id)
+        public async Task<Note?> GetByIdAsync(int id, string userId, bool isAdmin)
         {
-            return await _db.Notes.FirstOrDefaultAsync(n => n.Id == id);
+            var query = _db.Notes.AsQueryable();
+            if (!isAdmin)
+            {
+                query = query.Where(n => n.UserId == userId);
+            }
+
+            return await query.FirstOrDefaultAsync(n => n.Id == id);
         }
 
-        public async Task<List<Note>> GetAllAsync()
+        public async Task<List<Note>> GetAllAsync(string userId, bool isAdmin)
         {
-            return await _db.Notes
+            var query = _db.Notes.AsQueryable();
+            if (!isAdmin)
+            {
+                query = query.Where(n => n.UserId == userId);
+            }
+
+            return await query
                 .OrderByDescending(n => n.Date)
                 .ToListAsync();
         }
 
-        public async Task<List<Note>> GetByCategoryAsync(string category)
+        public async Task<List<Note>> GetByCategoryAsync(string category, string userId, bool isAdmin)
         {
-            return await _db.Notes
-                .Where(n => n.Category.ToLower() == category.ToLower())
+            var query = _db.Notes
+                .Where(n => n.Category.ToLower() == category.ToLower());
+
+            if (!isAdmin)
+            {
+                query = query.Where(n => n.UserId == userId);
+            }
+
+            return await query
                 .OrderByDescending(n => n.Date)
                 .ToListAsync();
         }
 
-        public async Task<bool> ExistsAsync(string title, string category, DateTime date)
+        public async Task<bool> ExistsAsync(string title, string category, DateTime date, string userId)
         {
             return await _db.Notes.AnyAsync(n =>
                 n.Title.ToLower() == title.ToLower() &&
                 n.Category.ToLower() == category.ToLower() &&
-                n.Date == date);
+                n.Date == date &&
+                n.UserId == userId);
         }
     }
 }

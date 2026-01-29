@@ -17,8 +17,11 @@ namespace NoteCloud_api.Notes.Service
             _mapper = mapper;
         }
 
-        public async Task<NoteResponse> CreateNote(NoteRequest req)
+        public async Task<NoteResponse> CreateNote(NoteRequest req, string userId)
         {
+            if (string.IsNullOrWhiteSpace(userId))
+                throw new ArgumentException("UserId este obligatoriu.");
+
             if (string.IsNullOrWhiteSpace(req.Title))
                 throw new ArgumentException("Title este obligatoriu.");
 
@@ -30,7 +33,7 @@ namespace NoteCloud_api.Notes.Service
 
             var date = req.Date == default ? DateTime.UtcNow : req.Date;
 
-            var exists = await _repo.ExistsAsync(req.Title, req.Category, date);
+            var exists = await _repo.ExistsAsync(req.Title, req.Category, date, userId);
             if (exists)
                 throw new NoteAlreadyExistsException();
 
@@ -38,14 +41,18 @@ namespace NoteCloud_api.Notes.Service
             note.Id = 0;
             note.Date = date;
             note.isFavorite = req.IsFavorite;
+            note.UserId = userId;
 
             var created = await _repo.AddAsync(note);
             return _mapper.Map<NoteResponse>(created);
         }
 
-        public async Task<NoteResponse> UpdateNote(int id, NoteUpdateRequest req)
+        public async Task<NoteResponse> UpdateNote(int id, NoteUpdateRequest req, string userId, bool isAdmin)
         {
-            var note = await _repo.GetByIdAsync(id);
+            if (string.IsNullOrWhiteSpace(userId))
+                throw new ArgumentException("UserId este obligatoriu.");
+
+            var note = await _repo.GetByIdAsync(id, userId, isAdmin);
             if (note == null)
                 throw new NoteNotFoundException();
 
@@ -68,8 +75,15 @@ namespace NoteCloud_api.Notes.Service
             return _mapper.Map<NoteResponse>(updated);
         }
 
-        public async Task<bool> DeleteNote(int id)
+        public async Task<bool> DeleteNote(int id, string userId, bool isAdmin)
         {
+            if (string.IsNullOrWhiteSpace(userId))
+                throw new ArgumentException("UserId este obligatoriu.");
+
+            var note = await _repo.GetByIdAsync(id, userId, isAdmin);
+            if (note == null)
+                throw new NoteNotFoundException();
+
             var success = await _repo.DeleteAsync(id);
             if (!success)
                 throw new NoteNotFoundException();

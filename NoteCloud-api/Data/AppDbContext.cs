@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NoteCloud_api.Notes.Models;
 using NoteCloud_api.Users.Models;
 using System.Collections.Generic;
@@ -50,8 +50,14 @@ namespace NoteCloud_api.Data
                 entity.Property(n => n.Title).HasColumnName("title").HasMaxLength(255);
                 entity.Property(n => n.Content).HasColumnName("content").HasMaxLength(5000);
                 entity.Property(n => n.Category).HasColumnName("category").HasMaxLength(100);
+                entity.Property(n => n.UserId).HasColumnName("userId").HasMaxLength(100);
                 entity.Property(n => n.isFavorite).HasColumnName("isFavorite");
                 entity.Property(n => n.Date).HasColumnName("date");
+
+                entity.HasOne(n => n.User)
+                    .WithMany(u => u.Notes)
+                    .HasForeignKey(n => n.UserId)
+                    .OnDelete(DeleteBehavior.Cascade);
             });
         }
     }

@@ -4,8 +4,8 @@ namespace NoteCloud_api.Notes.Service
 {
     public interface ICommandServiceNote
     {
-        Task<NoteResponse> CreateNote(NoteRequest req);
-        Task<NoteResponse> UpdateNote(int id, NoteUpdateRequest req);
-        Task<bool> DeleteNote(int id);
+        Task<NoteResponse> CreateNote(NoteRequest req, string userId);
+        Task<NoteResponse> UpdateNote(int id, NoteUpdateRequest req, string userId, bool isAdmin);
+        Task<bool> DeleteNote(int id, string userId, bool isAdmin);
     }
 }

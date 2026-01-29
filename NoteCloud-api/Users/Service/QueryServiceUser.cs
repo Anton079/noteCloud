@@ -27,7 +27,11 @@ namespace NoteCloud_api.Users.Service
 
         public async Task<UserResponse> FindUserByEmailAsync(string email)
         {
-            var user = await _repo.GetByEmailAsync(email);
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentException("Email este obligatoriu.");
+
+            var normalizedEmail = email.Trim().ToLowerInvariant();
+            var user = await _repo.GetByEmailAsync(normalizedEmail);
             if (user == null)
                 throw new UserNotFoundException();
 

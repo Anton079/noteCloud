@@ -1,0 +1,76 @@
+# Build results
+**/bin/
+**/obj/
+**/out/
+**/TestResults/
+**/artifacts/
+
+# Rider / JetBrains
+.idea/
+**/.idea/
+*.sln.iml
+
+# Visual Studio
+.vs/
+**/.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.cache
+*.tmp
+
+# Visual Studio Code
+.vscode/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# NuGet
+*.nupkg
+packages/
+**/packages/
+**/packages.lock.json
+
+# Publish output
+publish/
+**/publish/
+
+# App settings (may contain secrets)
+appsettings*.json
+
+# HTTP scratch files
+*.http
+
+# Node / front-end (if any)
+node_modules/
+
+# Local databases
+*.mdf
+*.ldf
+*.sqlite
+*.db
+
+# Coverage
+coverage/
+**/coverage/
+*.opencover.xml
+
+# BenchmarkDotNet
+BenchmarkDotNet.Artifacts/
+
+# Azure / AWS local files
+.local.settings.json
+
+# Misc
+*.pdb
+*.stackdump

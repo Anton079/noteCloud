@@ -34,13 +34,15 @@ namespace NoteCloud_api.Users.Service
             if (string.IsNullOrWhiteSpace(req.Password))
                 throw new ArgumentException("Password este obligatoriu.");
 
-            var exists = await _repo.EmailExistsAsync(req.Email);
+            var normalizedEmail = req.Email.Trim().ToLowerInvariant();
+            var exists = await _repo.EmailExistsAsync(normalizedEmail);
             if (exists)
                 throw new UserAlreadyExistsException();
 
             var user = _mapper.Map<User>(req);
             user.Id = IdGenerator.New("user");
             user.Role = string.IsNullOrWhiteSpace(req.Role) ? "User" : req.Role;
+            user.Email = normalizedEmail;
 
             var hp = PasswordHasher.HashPassword(req.Password);
             user.PasswordHash = hp.Hash;
@@ -66,13 +68,17 @@ namespace NoteCloud_api.Users.Service
             if (user == null)
                 throw new UserNotFoundException();
 
-            if (!string.IsNullOrWhiteSpace(req.Email) && !string.Equals(req.Email, user.Email, StringComparison.OrdinalIgnoreCase))
+            if (!string.IsNullOrWhiteSpace(req.Email))
             {
-                var emailUsed = await _repo.EmailExistsAsync(req.Email);
-                if (emailUsed)
-                    throw new UserAlreadyExistsException();
+                var normalizedEmail = req.Email.Trim().ToLowerInvariant();
+                if (!string.Equals(normalizedEmail, user.Email, StringComparison.OrdinalIgnoreCase))
+                {
+                    var emailUsed = await _repo.EmailExistsAsync(normalizedEmail);
+                    if (emailUsed)
+                        throw new UserAlreadyExistsException();
+                }
 
-                user.Email = req.Email;
+                user.Email = normalizedEmail;
             }
 
             if (!string.IsNullOrWhiteSpace(req.FirstName))

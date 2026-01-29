@@ -8,10 +8,10 @@
         Task<Note> UpdateAsync(Note note);
         Task<bool> DeleteAsync(int id);
 
-        Task<Note?> GetByIdAsync(int id);
-        Task<List<Note>> GetAllAsync();
-        Task<List<Note>> GetByCategoryAsync(string category);
+        Task<Note?> GetByIdAsync(int id, string userId, bool isAdmin);
+        Task<List<Note>> GetAllAsync(string userId, bool isAdmin);
+        Task<List<Note>> GetByCategoryAsync(string category, string userId, bool isAdmin);
 
-        Task<bool> ExistsAsync(string title, string category, DateTime date);
+        Task<bool> ExistsAsync(string title, string category, DateTime date, string userId);
     }
 }

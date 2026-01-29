@@ -9,10 +9,10 @@ namespace NoteCloud_api.Auth.Services
         private readonly ILogger<RolePermissionResolver> _logger;
 
         private static readonly IReadOnlyCollection<string> AdminDefaults =
-            new[] { "read", "write", "read:user", "write:user", "read:note", "write:note" };
+            new[] { "read:user", "write:user", "read:note", "write:note" };
 
         private static readonly IReadOnlyCollection<string> UserDefaults =
-            new[] { "read", "write", "read:note", "write:note" };
+            new[] { "read:note", "write:note" };
 
         public RolePermissionResolver(IOptionsMonitor<RolePermissionsOptions> optionsMonitor, ILogger<RolePermissionResolver> logger)
         {
