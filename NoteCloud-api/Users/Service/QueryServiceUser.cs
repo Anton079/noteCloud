@@ -38,10 +38,13 @@ namespace NoteCloud_api.Users.Service
             return _mapper.Map<UserResponse>(user);
         }
 
-        public async Task<List<UserResponse>> GetAllUsersAsync()
+        public async Task<UserListRequest> GetAllUsersAsync()
         {
             var users = await _repo.GetAllAsync();
-            return _mapper.Map<List<UserResponse>>(users);
+            return new UserListRequest
+            {
+                Users = _mapper.Map<List<UserResponse>>(users)
+            };
         }
     }
 }

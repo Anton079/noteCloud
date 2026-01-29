@@ -23,7 +23,7 @@ namespace NoteCloud_api.Notes.Controllers
 
         [HttpGet]
         [Authorize(Policy = "read:note")]
-        public async Task<ActionResult<List<NoteResponse>>> GetAll([FromQuery] string? category)
+        public async Task<ActionResult<NoteListRequest>> GetAll([FromQuery] string? categoryId)
         {
             try
             {
@@ -33,9 +33,9 @@ namespace NoteCloud_api.Notes.Controllers
 
                 var isAdmin = User.IsInRole(SystemRoles.Admin);
 
-                if (!string.IsNullOrWhiteSpace(category))
+                if (!string.IsNullOrWhiteSpace(categoryId))
                 {
-                    var byCategory = await _query.GetNotesByCategoryAsync(category, userId, isAdmin);
+                    var byCategory = await _query.GetNotesByCategoryAsync(categoryId, userId, isAdmin);
                     return Ok(byCategory);
                 }
 
@@ -52,9 +52,9 @@ namespace NoteCloud_api.Notes.Controllers
             }
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id}")]
         [Authorize(Policy = "read:note")]
-        public async Task<ActionResult<NoteResponse>> GetById(int id)
+        public async Task<ActionResult<NoteResponse>> GetById(string id)
         {
             try
             {
@@ -105,9 +105,9 @@ namespace NoteCloud_api.Notes.Controllers
         }
 
 
-        [HttpPut("{id:int}")]
+        [HttpPut("{id}")]
         [Authorize(Policy = "write:note")]
-        public async Task<ActionResult<NoteResponse>> Update(int id, [FromBody] NoteUpdateRequest req)
+        public async Task<ActionResult<NoteResponse>> Update(string id, [FromBody] NoteUpdateRequest req)
         {
             try
             {
@@ -134,9 +134,9 @@ namespace NoteCloud_api.Notes.Controllers
             }
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("{id}")]
         [Authorize(Policy = "write:note")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete(string id)
         {
             try
             {

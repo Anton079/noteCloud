@@ -1,6 +1,7 @@
 using FluentMigrator;
 using NoteCloud_api.Auth.Models;
 using NoteCloud_api.Auth.Services;
+using NoteCloud_api.System.Id;
 using System;
 using System.Data;
 
@@ -27,11 +28,19 @@ namespace NoteCloud_api.Data.Migrations
                 .WithColumn("refreshToken").AsString(500).Nullable()
                 .WithColumn("refreshTokenExpiryTime").AsDateTime().Nullable();
 
+            Execute.Sql("ALTER TABLE users MODIFY id VARCHAR(100) NOT NULL DEFAULT (UUID())");
+
+            Create.Table("categories")
+                .WithColumn("id").AsString(100).PrimaryKey()
+                .WithColumn("name").AsString(100).NotNullable().Unique();
+
+            Execute.Sql("ALTER TABLE categories MODIFY id VARCHAR(100) NOT NULL DEFAULT (UUID())");
+
             Create.Table("notes")
-                .WithColumn("id").AsInt32().PrimaryKey().Identity()
+                .WithColumn("id").AsString(100).PrimaryKey()
                 .WithColumn("title").AsString(255).NotNullable()
                 .WithColumn("content").AsString(5000).NotNullable()
-                .WithColumn("category").AsString(100).NotNullable()
+                .WithColumn("categoryId").AsString(100).NotNullable()
                 .WithColumn("userId").AsString(100).NotNullable()
                 .WithColumn("isFavorite").AsBoolean().NotNullable().WithDefaultValue(false)
                 .WithColumn("date").AsDateTime().NotNullable().WithDefault(SystemMethods.CurrentDateTime);
@@ -41,13 +50,27 @@ namespace NoteCloud_api.Data.Migrations
                 .ToTable("users").PrimaryColumn("id")
                 .OnDeleteOrUpdate(Rule.Cascade);
 
+            Create.ForeignKey("FK_notes_categories_categoryId")
+                .FromTable("notes").ForeignColumn("categoryId")
+                .ToTable("categories").PrimaryColumn("id")
+                .OnDeleteOrUpdate(Rule.None);
+
             Create.Index("IX_notes_userId")
                 .OnTable("notes")
                 .OnColumn("userId");
 
+            Create.Index("IX_notes_categoryId")
+                .OnTable("notes")
+                .OnColumn("categoryId");
+
             var adminId = "user-admin";
             var userAnaId = "user-ana";
             var userMihaiId = "user-mihai";
+
+            var catWorkId = "cat-work";
+            var catPersonalId = "cat-personal";
+            var catIdeasId = "cat-ideas";
+            var catTravelId = "cat-travel";
 
             var adminPassword = PasswordHasher.HashPassword("Admin123!");
             var anaPassword = PasswordHasher.HashPassword("User123!");
@@ -89,11 +112,17 @@ namespace NoteCloud_api.Data.Migrations
                 createdAt = DateTime.UtcNow
             });
 
+            Insert.IntoTable("categories").Row(new { id = catWorkId, name = "work" });
+            Insert.IntoTable("categories").Row(new { id = catPersonalId, name = "personal" });
+            Insert.IntoTable("categories").Row(new { id = catIdeasId, name = "ideas" });
+            Insert.IntoTable("categories").Row(new { id = catTravelId, name = "travel" });
+
             Insert.IntoTable("notes").Row(new
             {
+                id = IdGenerator.New("note"),
                 title = "Plan pentru saptamana",
                 content = "Finalizeaza API-ul, scrie teste, pregateste demo.",
-                category = "work",
+                categoryId = catWorkId,
                 userId = userAnaId,
                 isFavorite = true,
                 date = DateTime.UtcNow.AddDays(-2)
@@ -101,9 +130,10 @@ namespace NoteCloud_api.Data.Migrations
 
             Insert.IntoTable("notes").Row(new
             {
+                id = IdGenerator.New("note"),
                 title = "Lista cumparaturi",
                 content = "Lapte, paine, cafea, legume.",
-                category = "personal",
+                categoryId = catPersonalId,
                 userId = userAnaId,
                 isFavorite = false,
                 date = DateTime.UtcNow.AddDays(-1)
@@ -111,9 +141,10 @@ namespace NoteCloud_api.Data.Migrations
 
             Insert.IntoTable("notes").Row(new
             {
+                id = IdGenerator.New("note"),
                 title = "Idei proiect",
                 content = "Aplicatie note cu tag-uri si cautare full-text.",
-                category = "ideas",
+                categoryId = catIdeasId,
                 userId = userMihaiId,
                 isFavorite = true,
                 date = DateTime.UtcNow.AddDays(-3)
@@ -121,9 +152,10 @@ namespace NoteCloud_api.Data.Migrations
 
             Insert.IntoTable("notes").Row(new
             {
+                id = IdGenerator.New("note"),
                 title = "Plan calatorie",
                 content = "Bilete, cazare, itinerar pe zile.",
-                category = "travel",
+                categoryId = catTravelId,
                 userId = userMihaiId,
                 isFavorite = false,
                 date = DateTime.UtcNow.AddDays(-5)
@@ -133,6 +165,7 @@ namespace NoteCloud_api.Data.Migrations
         public override void Down()
         {
             Delete.Table("notes");
+            Delete.Table("categories");
             Delete.Table("users");
         }
     }

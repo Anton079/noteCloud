@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using NoteCloud_api.System.Id;
 using NoteCloud_api.Users.Dto;
 using NoteCloud_api.Users.Exceptions;
 using NoteCloud_api.Users.Models;
@@ -40,7 +39,6 @@ namespace NoteCloud_api.Users.Service
                 throw new UserAlreadyExistsException();
 
             var user = _mapper.Map<User>(req);
-            user.Id = IdGenerator.New("user");
             user.Role = string.IsNullOrWhiteSpace(req.Role) ? "User" : req.Role;
             user.Email = normalizedEmail;
 

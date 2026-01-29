@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using NoteCloud_api.Categories.Models;
 using NoteCloud_api.Users.Models;
 
 namespace NoteCloud_api.Notes.Models
@@ -8,9 +9,9 @@ namespace NoteCloud_api.Notes.Models
     public class Note
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
-        public int Id { get; set; }
+        [MaxLength(100)]
+        public string Id { get; set; } = default!;
 
         [Required]
         [Column("title")]
@@ -21,8 +22,11 @@ namespace NoteCloud_api.Notes.Models
         public string Content { get; set; }
 
         [Required]
-        [Column("category")]
-        public string Category { get; set; }
+        [Column("categoryId")]
+        [MaxLength(100)]
+        public string CategoryId { get; set; }
+
+        public Category? Category { get; set; }
 
         [Required]
         [Column("userId")]

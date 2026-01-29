@@ -8,6 +8,8 @@ using Microsoft.OpenApi.Models;
 using MySqlConnector;
 using NoteCloud_api.Auth.Models;
 using NoteCloud_api.Auth.Services;
+using NoteCloud_api.Categories.Repository;
+using NoteCloud_api.Categories.Service;
 using NoteCloud_api.Data;
 using NoteCloud_api.Notes.Repository;
 using NoteCloud_api.Notes.Service;
@@ -119,6 +121,10 @@ public class Program
         builder.Services.AddScoped<ICommandServiceNote, CommandServiceNote>();
         builder.Services.AddScoped<IQueryServiceNote, QueryServiceNote>();
 
+        builder.Services.AddScoped<ICategoryRepo, CategoryRepo>();
+        builder.Services.AddScoped<ICommandServiceCategory, CommandServiceCategory>();
+        builder.Services.AddScoped<IQueryServiceCategory, QueryServiceCategory>();
+
         builder.Services.AddScoped<IUserAuthenticator, UserAuthenticator>();
         builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
         builder.Services.AddScoped<IRolePermissionResolver, RolePermissionResolver>();
@@ -131,7 +137,7 @@ public class Program
         builder.Services.AddFluentMigratorCore()
             .ConfigureRunner(rb => rb
                 .AddMySql5()
-                .WithGlobalConnectionString(builder.Configuration.GetConnectionString("Default"))
+                .WithGlobalConnectionString(connectionString)
                 .ScanIn(typeof(Program).Assembly).For.Migrations())
             .AddLogging(lb => lb.AddFluentMigratorConsole());
 

@@ -21,7 +21,7 @@ namespace NoteCloud_api.Users.Controllers
 
         [HttpGet]
         [Authorize(Policy = "read:user")]
-        public async Task<ActionResult<List<UserResponse>>> GetAll()
+        public async Task<ActionResult<UserListRequest>> GetAll()
         {
             try
             {

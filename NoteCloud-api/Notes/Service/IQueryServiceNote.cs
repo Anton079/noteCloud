@@ -4,8 +4,8 @@ namespace NoteCloud_api.Notes.Service
 {
     public interface IQueryServiceNote
     {
-        Task<NoteResponse> FindNoteByIdAsync(int id, string userId, bool isAdmin);
-        Task<List<NoteResponse>> GetAllNotesAsync(string userId, bool isAdmin);
-        Task<List<NoteResponse>> GetNotesByCategoryAsync(string category, string userId, bool isAdmin);
+        Task<NoteResponse> FindNoteByIdAsync(string id, string userId, bool isAdmin);
+        Task<NoteListRequest> GetAllNotesAsync(string userId, bool isAdmin);
+        Task<NoteListRequest> GetNotesByCategoryAsync(string categoryId, string userId, bool isAdmin);
     }
 }

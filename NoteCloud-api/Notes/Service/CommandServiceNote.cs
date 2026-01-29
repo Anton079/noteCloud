@@ -3,6 +3,7 @@ using NoteCloud_api.Notes.Dto;
 using NoteCloud_api.Notes.Exceptions;
 using NoteCloud_api.Notes.Models;
 using NoteCloud_api.Notes.Repository;
+using NoteCloud_api.System.Id;
 
 namespace NoteCloud_api.Notes.Service
 {
@@ -28,17 +29,17 @@ namespace NoteCloud_api.Notes.Service
             if (string.IsNullOrWhiteSpace(req.Content))
                 throw new ArgumentException("Content este obligatoriu.");
 
-            if (string.IsNullOrWhiteSpace(req.Category))
-                throw new ArgumentException("Category este obligatoriu.");
+            if (string.IsNullOrWhiteSpace(req.CategoryId))
+                throw new ArgumentException("CategoryId este obligatoriu.");
 
             var date = req.Date == default ? DateTime.UtcNow : req.Date;
 
-            var exists = await _repo.ExistsAsync(req.Title, req.Category, date, userId);
+            var exists = await _repo.ExistsAsync(req.Title, req.CategoryId, date, userId);
             if (exists)
                 throw new NoteAlreadyExistsException();
 
             var note = _mapper.Map<Note>(req);
-            note.Id = 0;
+            note.Id = IdGenerator.New("note");
             note.Date = date;
             note.isFavorite = req.IsFavorite;
             note.UserId = userId;
@@ -47,7 +48,7 @@ namespace NoteCloud_api.Notes.Service
             return _mapper.Map<NoteResponse>(created);
         }
 
-        public async Task<NoteResponse> UpdateNote(int id, NoteUpdateRequest req, string userId, bool isAdmin)
+        public async Task<NoteResponse> UpdateNote(string id, NoteUpdateRequest req, string userId, bool isAdmin)
         {
             if (string.IsNullOrWhiteSpace(userId))
                 throw new ArgumentException("UserId este obligatoriu.");
@@ -62,8 +63,8 @@ namespace NoteCloud_api.Notes.Service
             if (!string.IsNullOrWhiteSpace(req.Content))
                 note.Content = req.Content;
 
-            if (!string.IsNullOrWhiteSpace(req.Category))
-                note.Category = req.Category;
+            if (!string.IsNullOrWhiteSpace(req.CategoryId))
+                note.CategoryId = req.CategoryId;
 
             if (req.IsFavorite.HasValue)
                 note.isFavorite = req.IsFavorite.Value;
@@ -75,7 +76,7 @@ namespace NoteCloud_api.Notes.Service
             return _mapper.Map<NoteResponse>(updated);
         }
 
-        public async Task<bool> DeleteNote(int id, string userId, bool isAdmin)
+        public async Task<bool> DeleteNote(string id, string userId, bool isAdmin)
         {
             if (string.IsNullOrWhiteSpace(userId))
                 throw new ArgumentException("UserId este obligatoriu.");

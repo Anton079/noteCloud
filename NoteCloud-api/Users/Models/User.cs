@@ -10,7 +10,7 @@ namespace NoteCloud_api.Users.Models
         [Key]
         [Column("id")]
         [MaxLength(100)]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string Id { get; set; } = default!;
 
         [Required]
         [Column("firstName")]

@@ -16,7 +16,7 @@ namespace NoteCloud_api.Notes.Service
             _mapper = mapper;
         }
 
-        public async Task<NoteResponse> FindNoteByIdAsync(int id, string userId, bool isAdmin)
+        public async Task<NoteResponse> FindNoteByIdAsync(string id, string userId, bool isAdmin)
         {
             if (string.IsNullOrWhiteSpace(userId))
                 throw new ArgumentException("UserId este obligatoriu.");
@@ -28,25 +28,31 @@ namespace NoteCloud_api.Notes.Service
             return _mapper.Map<NoteResponse>(note);
         }
 
-        public async Task<List<NoteResponse>> GetAllNotesAsync(string userId, bool isAdmin)
+        public async Task<NoteListRequest> GetAllNotesAsync(string userId, bool isAdmin)
         {
             if (string.IsNullOrWhiteSpace(userId))
                 throw new ArgumentException("UserId este obligatoriu.");
 
             var notes = await _repo.GetAllAsync(userId, isAdmin);
-            return _mapper.Map<List<NoteResponse>>(notes);
+            return new NoteListRequest
+            {
+                Notes = _mapper.Map<List<NoteResponse>>(notes)
+            };
         }
 
-        public async Task<List<NoteResponse>> GetNotesByCategoryAsync(string category, string userId, bool isAdmin)
+        public async Task<NoteListRequest> GetNotesByCategoryAsync(string categoryId, string userId, bool isAdmin)
         {
-            if (string.IsNullOrWhiteSpace(category))
-                throw new ArgumentException("Category este obligatoriu.");
+            if (string.IsNullOrWhiteSpace(categoryId))
+                throw new ArgumentException("CategoryId este obligatoriu.");
 
             if (string.IsNullOrWhiteSpace(userId))
                 throw new ArgumentException("UserId este obligatoriu.");
 
-            var notes = await _repo.GetByCategoryAsync(category, userId, isAdmin);
-            return _mapper.Map<List<NoteResponse>>(notes);
+            var notes = await _repo.GetByCategoryAsync(categoryId, userId, isAdmin);
+            return new NoteListRequest
+            {
+                Notes = _mapper.Map<List<NoteResponse>>(notes)
+            };
         }
     }
 }
