@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NoteCloud_api.Categories.Models;
 using NoteCloud_api.Notes.Models;
 using NoteCloud_api.Users.Models;
@@ -22,12 +23,19 @@ namespace NoteCloud_api.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            var guidToBytes = new GuidToBytesConverter();
+
             modelBuilder.Entity<User>(entity =>
             {
                 entity.ToTable("users");
                 entity.HasKey(u => u.Id);
 
-                entity.Property(u => u.Id).HasColumnName("id").HasMaxLength(100).HasDefaultValueSql("UUID()");
+                entity.Property(u => u.Id)
+                    .HasColumnName("id")
+                    .HasColumnType("binary(16)")
+                    .HasConversion(guidToBytes)
+                    .HasDefaultValueSql("UUID_TO_BIN(UUID())")
+                    .ValueGeneratedOnAdd();
                 entity.Property(u => u.FirstName).HasColumnName("firstName").HasMaxLength(50);
                 entity.Property(u => u.LastName).HasColumnName("lastName").HasMaxLength(50);
                 entity.Property(u => u.Email).HasColumnName("email").HasMaxLength(100);
@@ -48,7 +56,12 @@ namespace NoteCloud_api.Data
                 entity.ToTable("categories");
                 entity.HasKey(c => c.Id);
 
-                entity.Property(c => c.Id).HasColumnName("id").HasMaxLength(100).HasDefaultValueSql("UUID()");
+                entity.Property(c => c.Id)
+                    .HasColumnName("id")
+                    .HasColumnType("binary(16)")
+                    .HasConversion(guidToBytes)
+                    .HasDefaultValueSql("UUID_TO_BIN(UUID())")
+                    .ValueGeneratedOnAdd();
                 entity.Property(c => c.Name).HasColumnName("name").HasMaxLength(100);
             });
 
@@ -57,11 +70,22 @@ namespace NoteCloud_api.Data
                 entity.ToTable("notes");
                 entity.HasKey(n => n.Id);
 
-                entity.Property(n => n.Id).HasColumnName("id").HasMaxLength(100);
+                entity.Property(n => n.Id)
+                    .HasColumnName("id")
+                    .HasColumnType("binary(16)")
+                    .HasConversion(guidToBytes)
+                    .HasDefaultValueSql("UUID_TO_BIN(UUID())")
+                    .ValueGeneratedOnAdd();
                 entity.Property(n => n.Title).HasColumnName("title").HasMaxLength(255);
                 entity.Property(n => n.Content).HasColumnName("content").HasMaxLength(5000);
-                entity.Property(n => n.CategoryId).HasColumnName("categoryId").HasMaxLength(100);
-                entity.Property(n => n.UserId).HasColumnName("userId").HasMaxLength(100);
+                entity.Property(n => n.CategoryId)
+                    .HasColumnName("categoryId")
+                    .HasColumnType("binary(16)")
+                    .HasConversion(guidToBytes);
+                entity.Property(n => n.UserId)
+                    .HasColumnName("userId")
+                    .HasColumnType("binary(16)")
+                    .HasConversion(guidToBytes);
                 entity.Property(n => n.isFavorite).HasColumnName("isFavorite");
                 entity.Property(n => n.Date).HasColumnName("date");
 

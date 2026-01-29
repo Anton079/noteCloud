@@ -1,6 +1,7 @@
 using AutoMapper;
 using NoteCloud_api.Categories.Dto;
 using NoteCloud_api.Categories.Repository;
+using NoteCloud_api.System.Exceptions;
 
 namespace NoteCloud_api.Categories.Service
 {
@@ -15,14 +16,14 @@ namespace NoteCloud_api.Categories.Service
             _mapper = mapper;
         }
 
-        public async Task<CategoryResponse> FindCategoryByIdAsync(string id)
+        public async Task<CategoryResponse> FindCategoryByIdAsync(Guid id)
         {
-            if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Id este obligatoriu.");
+            if (id == Guid.Empty)
+                throw new ValidationAppException("Id este obligatoriu.");
 
             var category = await _repo.GetByIdAsync(id);
             if (category == null)
-                throw new ArgumentException("Category nu a fost gasita.");
+                throw new NotFoundAppException("Category nu a fost gasita.");
 
             return _mapper.Map<CategoryResponse>(category);
         }

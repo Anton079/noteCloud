@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using NoteCloud_api.Auth.Models;
 using NoteCloud_api.Data;
@@ -42,7 +42,8 @@ namespace NoteCloud_api.Auth.Services
                 if (string.Equals(defaultUser.Password, password, StringComparison.Ordinal))
                 {
                     var role = string.IsNullOrWhiteSpace(defaultUser.Role) ? SystemRoles.User : SystemRoles.Normalize(defaultUser.Role);
-                    return new AuthenticatedUser(defaultUser.Id, defaultUser.Username, defaultUser.DisplayName, role);
+                    var id = Guid.TryParse(defaultUser.Id, out var parsed) ? parsed : Guid.NewGuid();
+                    return new AuthenticatedUser(id, defaultUser.Username, defaultUser.DisplayName, role);
                 }
             }
 

@@ -27,7 +27,7 @@ namespace NoteCloud_api.Categories.Repository
             return category;
         }
 
-        public async Task<bool> DeleteAsync(string id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
             var category = await _db.Categories.FirstOrDefaultAsync(c => c.Id == id);
             if (category == null)
@@ -38,7 +38,7 @@ namespace NoteCloud_api.Categories.Repository
             return true;
         }
 
-        public async Task<Category?> GetByIdAsync(string id)
+        public async Task<Category?> GetByIdAsync(Guid id)
         {
             return await _db.Categories.FirstOrDefaultAsync(c => c.Id == id);
         }

@@ -4,7 +4,7 @@ namespace NoteCloud_api.Categories.Service
 {
     public interface IQueryServiceCategory
     {
-        Task<CategoryResponse> FindCategoryByIdAsync(string id);
+        Task<CategoryResponse> FindCategoryByIdAsync(Guid id);
         Task<CategoryListRequest> GetAllCategoriesAsync();
     }
 }

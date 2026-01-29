@@ -15,6 +15,7 @@ using NoteCloud_api.Notes.Repository;
 using NoteCloud_api.Notes.Service;
 using NoteCloud_api.Users.Repository;
 using NoteCloud_api.Users.Service;
+using NoteCloud_api.System.ExceptionHandling;
 
 
 public class Program
@@ -27,11 +28,26 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(options =>
         {
+            options.EnableAnnotations();
             options.SwaggerDoc("v1", new OpenApiInfo
             {
                 Title = "NoteCloud API",
                 Version = "v1",
-                Description = "API for NoteCloud management"
+                Description = "NoteCloud API for managing users, notes, and categories.\n\n" +
+                              "## Auth\n" +
+                              "- Use **Bearer JWT** in the `Authorization` header.\n" +
+                              "- Permissions are evaluated from `permission` claims.\n\n" +
+                              "## Permissions\n" +
+                              "- `read:users`, `write:users`\n" +
+                              "- `read:note`, `write:note`\n" +
+                              "- `read:category`, `write:category`\n\n" +
+                              "## Base path\n" +
+                              "- `/api/v1`",
+                Contact = new OpenApiContact
+                {
+                    Name = "NoteCloud API Support",
+                    Email = "support@notecloud.local"
+                }
             });
 
             var jwtSecurityScheme = new OpenApiSecurityScheme
@@ -98,11 +114,17 @@ public class Program
             options.AddPolicy("write:note", p => p.RequireAssertion(ctx =>
                 ctx.User.HasClaim("permission", "write:note") || ctx.User.HasClaim("permission", "write")));
 
-            options.AddPolicy("read:user", p => p.RequireAssertion(ctx =>
-                ctx.User.HasClaim("permission", "read:user") || ctx.User.HasClaim("permission", "read")));
+            options.AddPolicy("read:users", p => p.RequireAssertion(ctx =>
+                ctx.User.HasClaim("permission", "read:users")));
 
-            options.AddPolicy("write:user", p => p.RequireAssertion(ctx =>
-                ctx.User.HasClaim("permission", "write:user") || ctx.User.HasClaim("permission", "write")));
+            options.AddPolicy("write:users", p => p.RequireAssertion(ctx =>
+                ctx.User.HasClaim("permission", "write:users")));
+
+            options.AddPolicy("read:category", p => p.RequireAssertion(ctx =>
+                ctx.User.HasClaim("permission", "read:category")));
+
+            options.AddPolicy("write:category", p => p.RequireAssertion(ctx =>
+                ctx.User.HasClaim("permission", "write:category")));
 
             options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
             options.AddPolicy("User", policy => policy.RequireRole("User"));
@@ -152,6 +174,7 @@ public class Program
         }
 
         app.UseHttpsRedirection();
+        app.UseMiddleware<GlobalExceptionMiddleware>();
 
         using (var scope = app.Services.CreateScope())
         {

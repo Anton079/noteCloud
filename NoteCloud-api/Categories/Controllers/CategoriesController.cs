@@ -2,11 +2,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NoteCloud_api.Categories.Dto;
 using NoteCloud_api.Categories.Service;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace NoteCloud_api.Categories.Controllers
 {
     [ApiController]
     [Route("api/v1/categories")]
+    [SwaggerTag("Category CRUD for grouping notes")]
     public class CategoriesController : ControllerBase
     {
         private readonly ICommandServiceCategory _command;
@@ -19,94 +21,78 @@ namespace NoteCloud_api.Categories.Controllers
         }
 
         [HttpGet]
-        [Authorize(Policy = "read:note")]
+        [Authorize(Policy = "read:category")]
+        [SwaggerOperation(
+            Summary = "List categories",
+            Description = "Returns all categories. Typically used to filter notes by category.",
+            OperationId = "Categories_GetAll")]
+        [SwaggerResponse(StatusCodes.Status200OK, "Categories list", typeof(CategoryListRequest))]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, "Authentication required")]
         public async Task<ActionResult<CategoryListRequest>> GetAll()
         {
-            try
-            {
-                var categories = await _query.GetAllCategoriesAsync();
-                return Ok(categories);
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { message = "Internal server error." });
-            }
+            var categories = await _query.GetAllCategoriesAsync();
+            return Ok(categories);
         }
 
-        [HttpGet("{id}")]
-        [Authorize(Policy = "read:note")]
-        public async Task<ActionResult<CategoryResponse>> GetById(string id)
+        [HttpGet("{id:guid}")]
+        [Authorize(Policy = "read:category")]
+        [SwaggerOperation(
+            Summary = "Get category by id",
+            Description = "Returns a single category by id.",
+            OperationId = "Categories_GetById")]
+        [SwaggerResponse(StatusCodes.Status200OK, "Category found", typeof(CategoryResponse))]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, "Authentication required")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, "Category not found")]
+        public async Task<ActionResult<CategoryResponse>> GetById(Guid id)
         {
-            try
-            {
-                var category = await _query.FindCategoryByIdAsync(id);
-                return Ok(category);
-            }
-            catch (ArgumentException ex)
-            {
-                return NotFound(new { message = ex.Message });
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { message = "Internal server error." });
-            }
+            var category = await _query.FindCategoryByIdAsync(id);
+            return Ok(category);
         }
 
         [HttpPost]
-        [Authorize(Policy = "write:note")]
+        [Authorize(Policy = "write:category")]
+        [SwaggerOperation(
+            Summary = "Create category",
+            Description = "Creates a new category for grouping notes.",
+            OperationId = "Categories_Create")]
+        [SwaggerResponse(StatusCodes.Status201Created, "Category created", typeof(CategoryResponse))]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, "Validation failed")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, "Authentication required")]
         public async Task<ActionResult<CategoryResponse>> Create([FromBody] CategoryRequest req)
         {
-            try
-            {
-                var created = await _command.CreateCategory(req);
-                return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { message = "Internal server error." });
-            }
+            var created = await _command.CreateCategory(req);
+            return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
 
-        [HttpPut("{id}")]
-        [Authorize(Policy = "write:note")]
-        public async Task<ActionResult<CategoryResponse>> Update(string id, [FromBody] CategoryUpdateRequest req)
+        [HttpPut("{id:guid}")]
+        [Authorize(Policy = "write:category")]
+        [SwaggerOperation(
+            Summary = "Update category",
+            Description = "Updates a category by id.",
+            OperationId = "Categories_Update")]
+        [SwaggerResponse(StatusCodes.Status200OK, "Category updated", typeof(CategoryResponse))]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, "Validation failed")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, "Authentication required")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, "Category not found")]
+        public async Task<ActionResult<CategoryResponse>> Update(Guid id, [FromBody] CategoryUpdateRequest req)
         {
-            try
-            {
-                var updated = await _command.UpdateCategory(id, req);
-                return Ok(updated);
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { message = "Internal server error." });
-            }
+            var updated = await _command.UpdateCategory(id, req);
+            return Ok(updated);
         }
 
-        [HttpDelete("{id}")]
-        [Authorize(Policy = "write:note")]
-        public async Task<ActionResult> Delete(string id)
+        [HttpDelete("{id:guid}")]
+        [Authorize(Policy = "write:category")]
+        [SwaggerOperation(
+            Summary = "Delete category",
+            Description = "Deletes a category by id. Notes using this category must be reassigned first.",
+            OperationId = "Categories_Delete")]
+        [SwaggerResponse(StatusCodes.Status200OK, "Category deleted")]
+        [SwaggerResponse(StatusCodes.Status401Unauthorized, "Authentication required")]
+        [SwaggerResponse(StatusCodes.Status404NotFound, "Category not found")]
+        public async Task<ActionResult> Delete(Guid id)
         {
-            try
-            {
-                await _command.DeleteCategory(id);
-                return Ok(new { message = "Deleted" });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { message = "Internal server error." });
-            }
+            await _command.DeleteCategory(id);
+            return Ok(new { message = "Deleted" });
         }
     }
 }

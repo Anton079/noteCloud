@@ -6,8 +6,8 @@ namespace NoteCloud_api.Categories.Repository
     {
         Task<Category> AddAsync(Category category);
         Task<Category> UpdateAsync(Category category);
-        Task<bool> DeleteAsync(string id);
-        Task<Category?> GetByIdAsync(string id);
+        Task<bool> DeleteAsync(Guid id);
+        Task<Category?> GetByIdAsync(Guid id);
         Task<List<Category>> GetAllAsync();
         Task<bool> NameExistsAsync(string name);
     }

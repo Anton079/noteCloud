@@ -1,20 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace NoteCloud_api.Auth.Dto
 {
     public class RegisterRequest
     {
-        [Required]
+        [SwaggerSchema(Description = "Example: Ana")]
         public string FirstName { get; set; } = string.Empty;
 
-        [Required]
+        [SwaggerSchema(Description = "Example: Popescu")]
         public string LastName { get; set; } = string.Empty;
 
-        [Required]
-        [EmailAddress]
+        [SwaggerSchema(Description = "Example: ana@notecloud.local")]
         public string Email { get; set; } = string.Empty;
 
-        [Required]
+        [SwaggerSchema(Description = "Example: User123!")]
         public string Password { get; set; } = string.Empty;
     }
 }

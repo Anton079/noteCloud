@@ -1,8 +1,8 @@
-﻿namespace NoteCloud_api.Users.Dto
+namespace NoteCloud_api.Users.Dto
 {
     public class UserResponse
     {
-        public string Id { get; set; } = default!;
+        public Guid Id { get; set; }
         public string Email { get; set; } = default!;
         public string FullName { get; set; } = default!;
         public string? Role { get; set; }

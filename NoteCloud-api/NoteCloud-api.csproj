@@ -14,14 +14,21 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.*" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.*" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.*" />
-    <PackageReference Include="FluentValidation" Version="11.*" />
-    <PackageReference Include="FluentValidation.AspNetCore" Version="11.*" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.*" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.6.*" />
     <PackageReference Include="FluentMigrator" Version="5.*" />
     <PackageReference Include="FluentMigrator.Runner" Version="5.*" />
     <PackageReference Include="FluentMigrator.Runner.MySql" Version="5.*" />
     <PackageReference Include="AutoMapper" Version="12.*" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="**\\Validators\\*.cs" />
+    <Compile Remove="System\\ValueObjects\\EmailAddress.cs" />
+    <Compile Remove="System\\ValueObjects\\CategoryName.cs" />
+    <Compile Remove="System\\ValueObjects\\NoteTitle.cs" />
+    <Compile Remove="System\\ValueObjects\\NoteContent.cs" />
   </ItemGroup>
 
 </Project>

@@ -9,20 +9,19 @@ namespace NoteCloud_api.Users.Models
     {
         [Key]
         [Column("id")]
-        [MaxLength(100)]
-        public string Id { get; set; } = default!;
+        public Guid Id { get; set; }
 
         [Required]
         [Column("firstName")]
-        public string FirstName { get; set; }
+        public string FirstName { get; set; } = default!;
 
         [Required]
         [Column("lastName")]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = default!;
 
         [Required]
         [Column("email")]
-        public string Email { get; set; }
+        public string Email { get; set; } = default!;
 
         [Required]
         [Column("createdAt", TypeName = "datetime")]

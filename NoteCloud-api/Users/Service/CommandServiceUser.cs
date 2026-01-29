@@ -1,10 +1,11 @@
-﻿using AutoMapper;
+using AutoMapper;
+using NoteCloud_api.System.Exceptions;
+using NoteCloud_api.Users.Commands;
 using NoteCloud_api.Users.Dto;
-using NoteCloud_api.Users.Exceptions;
 using NoteCloud_api.Users.Models;
 using NoteCloud_api.Users.Repository;
 using NoteCloud_api.Auth.Services;
-
+using NoteCloud_api.Auth.Models;
 
 namespace NoteCloud_api.Users.Service
 {
@@ -21,28 +22,18 @@ namespace NoteCloud_api.Users.Service
 
         public async Task<UserResponse> CreateUser(UserRequest req)
         {
-            if (string.IsNullOrWhiteSpace(req.FirstName))
-                throw new ArgumentException("FirstName este obligatoriu.");
-
-            if (string.IsNullOrWhiteSpace(req.LastName))
-                throw new ArgumentException("LastName este obligatoriu.");
-
-            if (string.IsNullOrWhiteSpace(req.Email))
-                throw new ArgumentException("Email este obligatoriu.");
-
-            if (string.IsNullOrWhiteSpace(req.Password))
-                throw new ArgumentException("Password este obligatoriu.");
-
-            var normalizedEmail = req.Email.Trim().ToLowerInvariant();
-            var exists = await _repo.EmailExistsAsync(normalizedEmail);
+            var command = UserCreateCommand.From(req);
+            var exists = await _repo.EmailExistsAsync(command.Email.Value);
             if (exists)
-                throw new UserAlreadyExistsException();
+                throw new ConflictAppException("Email deja folosit.");
 
             var user = _mapper.Map<User>(req);
-            user.Role = string.IsNullOrWhiteSpace(req.Role) ? "User" : req.Role;
-            user.Email = normalizedEmail;
+            user.Role = command.Role;
+            user.Email = command.Email.Value;
+            user.FirstName = command.FirstName;
+            user.LastName = command.LastName;
 
-            var hp = PasswordHasher.HashPassword(req.Password);
+            var hp = PasswordHasher.HashPassword(command.Password);
             user.PasswordHash = hp.Hash;
             user.PasswordSalt = hp.Salt;
             user.Password = null;
@@ -59,57 +50,71 @@ namespace NoteCloud_api.Users.Service
 
         public async Task<UserResponse> UpdateUser(UserUpdateRequest req)
         {
-            if (string.IsNullOrWhiteSpace(req.Id))
-                throw new ArgumentException("Id este obligatoriu.");
+            if (!req.Id.HasValue || req.Id.Value == Guid.Empty)
+                throw new ValidationAppException("Id este obligatoriu.");
 
-            var user = await _repo.GetByIdAsync(req.Id);
+            var user = await _repo.GetByIdAsync(req.Id.Value);
             if (user == null)
-                throw new UserNotFoundException();
+                throw new NotFoundAppException("User nu a fost gasit.");
 
-            if (!string.IsNullOrWhiteSpace(req.Email))
+            var command = UserUpdateCommand.From(req);
+
+            if (command.Email.HasValue && !string.Equals(command.Email.Value.Value, user.Email, StringComparison.OrdinalIgnoreCase))
             {
-                var normalizedEmail = req.Email.Trim().ToLowerInvariant();
-                if (!string.Equals(normalizedEmail, user.Email, StringComparison.OrdinalIgnoreCase))
-                {
-                    var emailUsed = await _repo.EmailExistsAsync(normalizedEmail);
-                    if (emailUsed)
-                        throw new UserAlreadyExistsException();
-                }
-
-                user.Email = normalizedEmail;
+                var emailUsed = await _repo.EmailExistsAsync(command.Email.Value.Value);
+                if (emailUsed)
+                    throw new ConflictAppException("Email deja folosit.");
             }
 
-            if (!string.IsNullOrWhiteSpace(req.FirstName))
-                user.FirstName = req.FirstName;
-
-            if (!string.IsNullOrWhiteSpace(req.LastName))
-                user.LastName = req.LastName;
-
-            if (!string.IsNullOrWhiteSpace(req.Role))
-                user.Role = req.Role;
-
-            if (!string.IsNullOrWhiteSpace(req.Password))
+            if (command.Password.HasValue)
             {
-                var hp = PasswordHasher.HashPassword(req.Password);
+                var hp = PasswordHasher.HashPassword(command.Password.Value);
                 user.PasswordHash = hp.Hash;
                 user.PasswordSalt = hp.Salt;
                 user.Password = null;
             }
 
+            command.ApplyTo(user);
             user.UpdatedAt = DateTime.UtcNow;
 
             var updated = await _repo.UpdateAsync(user);
             return _mapper.Map<UserResponse>(updated);
         }
 
-        public async Task<bool> DeleteUser(string id)
+        public async Task<UserResponse> UpdateUserRole(Guid id, UserRoleUpdateRequest req)
         {
-            if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Id este obligatoriu.");
+            if (id == Guid.Empty)
+                throw new ValidationAppException("Id este obligatoriu.");
+
+            if (string.IsNullOrWhiteSpace(req.Role))
+                throw new ValidationAppException("Role este obligatoriu.");
+
+            var normalizedRole = SystemRoles.Normalize(req.Role);
+            if (!string.Equals(normalizedRole, SystemRoles.Admin, StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(normalizedRole, SystemRoles.User, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new ValidationAppException("Role invalid.");
+            }
+
+            var user = await _repo.GetByIdAsync(id);
+            if (user == null)
+                throw new NotFoundAppException("User nu a fost gasit.");
+
+            user.Role = normalizedRole;
+            user.UpdatedAt = DateTime.UtcNow;
+
+            var updated = await _repo.UpdateAsync(user);
+            return _mapper.Map<UserResponse>(updated);
+        }
+
+        public async Task<bool> DeleteUser(Guid id)
+        {
+            if (id == Guid.Empty)
+                throw new ValidationAppException("Id este obligatoriu.");
 
             var success = await _repo.DeleteAsync(id);
             if (!success)
-                throw new UserNotFoundException();
+                throw new NotFoundAppException("User nu a fost gasit.");
 
             return true;
         }

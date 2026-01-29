@@ -8,8 +8,7 @@ namespace NoteCloud_api.Categories.Models
     {
         [Key]
         [Column("id")]
-        [MaxLength(100)]
-        public string Id { get; set; } = default!;
+        public Guid Id { get; set; }
 
         [Required]
         [Column("name")]

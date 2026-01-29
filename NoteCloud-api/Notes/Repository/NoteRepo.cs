@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NoteCloud_api.Data;
 using NoteCloud_api.Notes.Models;
 
@@ -27,7 +27,7 @@ namespace NoteCloud_api.Notes.Repository
             return note;
         }
 
-        public async Task<bool> DeleteAsync(string id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
             var note = await _db.Notes.FirstOrDefaultAsync(n => n.Id == id);
             if (note == null)
@@ -38,7 +38,7 @@ namespace NoteCloud_api.Notes.Repository
             return true;
         }
 
-        public async Task<Note?> GetByIdAsync(string id, string userId, bool isAdmin)
+        public async Task<Note?> GetByIdAsync(Guid id, Guid userId, bool isAdmin)
         {
             var query = _db.Notes.AsQueryable();
             if (!isAdmin)
@@ -49,7 +49,7 @@ namespace NoteCloud_api.Notes.Repository
             return await query.FirstOrDefaultAsync(n => n.Id == id);
         }
 
-        public async Task<List<Note>> GetAllAsync(string userId, bool isAdmin)
+        public async Task<List<Note>> GetAllAsync(Guid userId, bool isAdmin)
         {
             var query = _db.Notes.AsQueryable();
             if (!isAdmin)
@@ -62,7 +62,7 @@ namespace NoteCloud_api.Notes.Repository
                 .ToListAsync();
         }
 
-        public async Task<List<Note>> GetByCategoryAsync(string categoryId, string userId, bool isAdmin)
+        public async Task<List<Note>> GetByCategoryAsync(Guid categoryId, Guid userId, bool isAdmin)
         {
             var query = _db.Notes
                 .Where(n => n.CategoryId == categoryId);
@@ -77,7 +77,7 @@ namespace NoteCloud_api.Notes.Repository
                 .ToListAsync();
         }
 
-        public async Task<bool> ExistsAsync(string title, string categoryId, DateTime date, string userId)
+        public async Task<bool> ExistsAsync(string title, Guid categoryId, DateTime date, Guid userId)
         {
             return await _db.Notes.AnyAsync(n =>
                 n.Title.ToLower() == title.ToLower() &&

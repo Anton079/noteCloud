@@ -1,7 +1,7 @@
-﻿using AutoMapper;
+using AutoMapper;
 using NoteCloud_api.Notes.Dto;
-using NoteCloud_api.Notes.Exceptions;
 using NoteCloud_api.Notes.Repository;
+using NoteCloud_api.System.Exceptions;
 
 namespace NoteCloud_api.Notes.Service
 {
@@ -16,22 +16,22 @@ namespace NoteCloud_api.Notes.Service
             _mapper = mapper;
         }
 
-        public async Task<NoteResponse> FindNoteByIdAsync(string id, string userId, bool isAdmin)
+        public async Task<NoteResponse> FindNoteByIdAsync(Guid id, Guid userId, bool isAdmin)
         {
-            if (string.IsNullOrWhiteSpace(userId))
-                throw new ArgumentException("UserId este obligatoriu.");
+            if (userId == Guid.Empty)
+                throw new ValidationAppException("UserId este obligatoriu.");
 
             var note = await _repo.GetByIdAsync(id, userId, isAdmin);
             if (note == null)
-                throw new NoteNotFoundException();
+                throw new NotFoundAppException("Note nu a fost gasita.");
 
             return _mapper.Map<NoteResponse>(note);
         }
 
-        public async Task<NoteListRequest> GetAllNotesAsync(string userId, bool isAdmin)
+        public async Task<NoteListRequest> GetAllNotesAsync(Guid userId, bool isAdmin)
         {
-            if (string.IsNullOrWhiteSpace(userId))
-                throw new ArgumentException("UserId este obligatoriu.");
+            if (userId == Guid.Empty)
+                throw new ValidationAppException("UserId este obligatoriu.");
 
             var notes = await _repo.GetAllAsync(userId, isAdmin);
             return new NoteListRequest
@@ -40,13 +40,13 @@ namespace NoteCloud_api.Notes.Service
             };
         }
 
-        public async Task<NoteListRequest> GetNotesByCategoryAsync(string categoryId, string userId, bool isAdmin)
+        public async Task<NoteListRequest> GetNotesByCategoryAsync(Guid categoryId, Guid userId, bool isAdmin)
         {
-            if (string.IsNullOrWhiteSpace(categoryId))
-                throw new ArgumentException("CategoryId este obligatoriu.");
+            if (categoryId == Guid.Empty)
+                throw new ValidationAppException("CategoryId este obligatoriu.");
 
-            if (string.IsNullOrWhiteSpace(userId))
-                throw new ArgumentException("UserId este obligatoriu.");
+            if (userId == Guid.Empty)
+                throw new ValidationAppException("UserId este obligatoriu.");
 
             var notes = await _repo.GetByCategoryAsync(categoryId, userId, isAdmin);
             return new NoteListRequest

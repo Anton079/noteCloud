@@ -10,28 +10,25 @@ namespace NoteCloud_api.Notes.Models
     {
         [Key]
         [Column("id")]
-        [MaxLength(100)]
-        public string Id { get; set; } = default!;
+        public Guid Id { get; set; }
 
         [Required]
         [Column("title")]
-        public string Title { get; set; }
+        public string Title { get; set; } = default!;
 
         [Required]
         [Column("content")]
-        public string Content { get; set; }
+        public string Content { get; set; } = default!;
 
         [Required]
         [Column("categoryId")]
-        [MaxLength(100)]
-        public string CategoryId { get; set; }
+        public Guid CategoryId { get; set; }
 
         public Category? Category { get; set; }
 
         [Required]
         [Column("userId")]
-        [MaxLength(100)]
-        public string UserId { get; set; }
+        public Guid UserId { get; set; }
 
         public User? User { get; set; }
 

@@ -1,7 +1,8 @@
-﻿using AutoMapper;
+using AutoMapper;
 using NoteCloud_api.Users.Dto;
-using NoteCloud_api.Users.Exceptions;
 using NoteCloud_api.Users.Repository;
+using NoteCloud_api.System.Exceptions;
+using NoteCloud_api.Users.ValueObjects;
 
 namespace NoteCloud_api.Users.Service
 {
@@ -16,24 +17,24 @@ namespace NoteCloud_api.Users.Service
             _mapper = mapper;
         }
 
-        public async Task<UserResponse> FindUserByIdAsync(string id)
+        public async Task<UserResponse> FindUserByIdAsync(Guid id)
         {
+            if (id == Guid.Empty)
+                throw new ValidationAppException("Id este obligatoriu.");
+
             var user = await _repo.GetByIdAsync(id);
             if (user == null)
-                throw new UserNotFoundException();
+                throw new NotFoundAppException("User nu a fost gasit.");
 
             return _mapper.Map<UserResponse>(user);
         }
 
         public async Task<UserResponse> FindUserByEmailAsync(string email)
         {
-            if (string.IsNullOrWhiteSpace(email))
-                throw new ArgumentException("Email este obligatoriu.");
-
-            var normalizedEmail = email.Trim().ToLowerInvariant();
+            var normalizedEmail = EmailAddress.Create(email).Value;
             var user = await _repo.GetByEmailAsync(normalizedEmail);
             if (user == null)
-                throw new UserNotFoundException();
+                throw new NotFoundAppException("User nu a fost gasit.");
 
             return _mapper.Map<UserResponse>(user);
         }

@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NoteCloud_api.Data;
 using NoteCloud_api.Users.Models;
 
@@ -27,7 +27,7 @@ namespace NoteCloud_api.Users.Repository
             return user;
         }
 
-        public async Task<bool> DeleteAsync(string id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
             var user = await _db.Users.FirstOrDefaultAsync(u => u.Id == id);
             if (user == null)
@@ -38,7 +38,7 @@ namespace NoteCloud_api.Users.Repository
             return true;
         }
 
-        public async Task<User?> GetByIdAsync(string id)
+        public async Task<User?> GetByIdAsync(Guid id)
         {
             return await _db.Users.FirstOrDefaultAsync(u => u.Id == id);
         }

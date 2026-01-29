@@ -1,4 +1,4 @@
-﻿namespace NoteCloud_api.Auth.Models
+namespace NoteCloud_api.Auth.Models
 {
-    public record AuthenticatedUser(string Id, string Username, string DisplayName, string Role);
+    public record AuthenticatedUser(Guid Id, string Username, string DisplayName, string Role);
 }

@@ -1,4 +1,4 @@
-﻿using NoteCloud_api.Users.Dto;
+using NoteCloud_api.Users.Dto;
 
 namespace NoteCloud_api.Users.Service
 {
@@ -6,6 +6,7 @@ namespace NoteCloud_api.Users.Service
     {
         Task<UserResponse> CreateUser(UserRequest req);
         Task<UserResponse> UpdateUser(UserUpdateRequest req);
-        Task<bool> DeleteUser(string id);
+        Task<UserResponse> UpdateUserRole(Guid id, UserRoleUpdateRequest req);
+        Task<bool> DeleteUser(Guid id);
     }
 }

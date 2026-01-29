@@ -1,13 +1,15 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NoteCloud_api.Users.Dto;
-using NoteCloud_api.Users.Exceptions;
 using NoteCloud_api.Users.Service;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace NoteCloud_api.Users.Controllers
 {
     [ApiController]
     [Route("api/v1/users")]
+    [SwaggerTag("User management and role administration")]
     public class UsersController : ControllerBase
     {
         private readonly ICommandServiceUser _command;
@@ -20,138 +22,97 @@ namespace NoteCloud_api.Users.Controllers
         }
 
         [HttpGet]
-        [Authorize(Policy = "read:user")]
+        [Authorize(Policy = "read:users")]
+        [SwaggerOperation(
+            Summary = "List users",
+            Description = "Returns all users. Requires `read:users` permission."
+        )]
+        [SwaggerResponse(StatusCodes.Status200OK, "Users list", typeof(UserListRequest))]
         public async Task<ActionResult<UserListRequest>> GetAll()
         {
-            try
-            {
-                var users = await _query.GetAllUsersAsync();
-                return Ok(users);
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { message = "Internal server error." });
-            }
+            var users = await _query.GetAllUsersAsync();
+            return Ok(users);
         }
 
-        [HttpGet("{id}")]
-        [Authorize(Policy = "read:user")]
-        public async Task<ActionResult<UserResponse>> GetById(string id)
+        [HttpGet("{id:guid}")]
+        [Authorize(Policy = "read:users")]
+        [SwaggerOperation(
+            Summary = "Get user by id",
+            Description = "Returns a single user by id. Requires `read:users` permission."
+        )]
+        [SwaggerResponse(StatusCodes.Status200OK, "User found", typeof(UserResponse))]
+        [SwaggerResponse(StatusCodes.Status404NotFound, "User not found")]
+        public async Task<ActionResult<UserResponse>> GetById(Guid id)
         {
-            try
-            {
-                var user = await _query.FindUserByIdAsync(id);
-                return Ok(user);
-            }
-            catch (UserNotFoundException ex)
-            {
-                return NotFound(new { message = ex.Message });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { message = "Internal server error." });
-            }
+            var user = await _query.FindUserByIdAsync(id);
+            return Ok(user);
         }
 
         [HttpGet("by-email/{email}")]
-        [Authorize(Policy = "read:user")]
+        [Authorize(Policy = "read:users")]
+        [SwaggerOperation(
+            Summary = "Get user by email",
+            Description = "Returns a single user by email. Requires `read:users` permission."
+        )]
+        [SwaggerResponse(StatusCodes.Status200OK, "User found", typeof(UserResponse))]
+        [SwaggerResponse(StatusCodes.Status404NotFound, "User not found")]
         public async Task<ActionResult<UserResponse>> GetByEmail(string email)
         {
-            try
-            {
-                var user = await _query.FindUserByEmailAsync(email);
-                return Ok(user);
-            }
-            catch (UserNotFoundException ex)
-            {
-                return NotFound(new { message = ex.Message });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { message = "Internal server error." });
-            }
+            var user = await _query.FindUserByEmailAsync(email);
+            return Ok(user);
         }
 
         [HttpPost]
-        [Authorize(Policy = "write:user")]
+        [Authorize(Policy = "write:users")]
+        [SwaggerOperation(
+            Summary = "Create user",
+            Description = "Creates a user. Requires `write:users` permission."
+        )]
+        [SwaggerResponse(StatusCodes.Status201Created, "User created", typeof(UserResponse))]
         public async Task<ActionResult<UserResponse>> Create([FromBody] UserRequest req)
         {
-            try
-            {
-                var created = await _command.CreateUser(req);
-                return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
-            }
-            catch (UserAlreadyExistsException ex)
-            {
-                return Conflict(new { message = ex.Message });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { message = "Internal server error." });
-            }
+            var created = await _command.CreateUser(req);
+            return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
 
-        [HttpPut("{id}")]
-        [Authorize(Policy = "write:user")]
-        public async Task<ActionResult<UserResponse>> Update(string id, [FromBody] UserUpdateRequest req)
+        [HttpPut("{id:guid}")]
+        [Authorize(Policy = "write:users")]
+        [SwaggerOperation(
+            Summary = "Update user",
+            Description = "Updates a user profile. Requires `write:users` permission."
+        )]
+        [SwaggerResponse(StatusCodes.Status200OK, "User updated", typeof(UserResponse))]
+        public async Task<ActionResult<UserResponse>> Update(Guid id, [FromBody] UserUpdateRequest req)
         {
-            try
-            {
-                req.Id = id;
-                var updated = await _command.UpdateUser(req);
-                return Ok(updated);
-            }
-            catch (UserNotFoundException ex)
-            {
-                return NotFound(new { message = ex.Message });
-            }
-            catch (UserAlreadyExistsException ex)
-            {
-                return Conflict(new { message = ex.Message });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, new { message = "Internal server error." });
-            }
+            req.Id = id;
+            var updated = await _command.UpdateUser(req);
+            return Ok(updated);
         }
 
-        [HttpDelete("{id}")]
-        [Authorize(Policy = "write:user")]
-        public async Task<ActionResult> Delete(string id)
+        [HttpPut("{id:guid}/role")]
+        [Authorize(Policy = "write:users")]
+        [SwaggerOperation(
+            Summary = "Update user role",
+            Description = "Promotes/demotes a user. Allowed roles: `Admin`, `User`. Requires `write:users` permission."
+        )]
+        [SwaggerResponse(StatusCodes.Status200OK, "Role updated", typeof(UserResponse))]
+        public async Task<ActionResult<UserResponse>> UpdateRole(Guid id, [FromBody] UserRoleUpdateRequest req)
         {
-            try
-            {
-                await _command.DeleteUser(id);
-                return Ok(new { message = "Deleted" });
-            }
-            catch (UserNotFoundException ex)
-            {
-                return NotFound(new { message = ex.Message });
-            }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new { message = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = ex.Message });
-            }
+            var updated = await _command.UpdateUserRole(id, req);
+            return Ok(updated);
+        }
+
+        [HttpDelete("{id:guid}")]
+        [Authorize(Policy = "write:users")]
+        [SwaggerOperation(
+            Summary = "Delete user",
+            Description = "Deletes a user by id. Requires `write:users` permission."
+        )]
+        [SwaggerResponse(StatusCodes.Status200OK, "User deleted")]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            await _command.DeleteUser(id);
+            return Ok(new { message = "Deleted" });
         }
     }
 }

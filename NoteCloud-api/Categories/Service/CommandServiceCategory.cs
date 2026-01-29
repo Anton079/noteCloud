@@ -1,7 +1,9 @@
 using AutoMapper;
+using NoteCloud_api.Categories.Commands;
 using NoteCloud_api.Categories.Dto;
 using NoteCloud_api.Categories.Models;
 using NoteCloud_api.Categories.Repository;
+using NoteCloud_api.System.Exceptions;
 
 namespace NoteCloud_api.Categories.Service
 {
@@ -18,13 +20,12 @@ namespace NoteCloud_api.Categories.Service
 
         public async Task<CategoryResponse> CreateCategory(CategoryRequest req)
         {
-            if (string.IsNullOrWhiteSpace(req.Name))
-                throw new ArgumentException("Name este obligatoriu.");
+            var command = CategoryCreateCommand.From(req);
+            var name = command.Name.Value;
 
-            var name = req.Name.Trim().ToLowerInvariant();
             var exists = await _repo.NameExistsAsync(name);
             if (exists)
-                throw new ArgumentException("Category exista deja.");
+                throw new ConflictAppException("Category exista deja.");
 
             var category = _mapper.Map<Category>(req);
             category.Name = name;
@@ -33,40 +34,38 @@ namespace NoteCloud_api.Categories.Service
             return _mapper.Map<CategoryResponse>(created);
         }
 
-        public async Task<CategoryResponse> UpdateCategory(string id, CategoryUpdateRequest req)
+        public async Task<CategoryResponse> UpdateCategory(Guid id, CategoryUpdateRequest req)
         {
-            if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Id este obligatoriu.");
+            if (id == Guid.Empty)
+                throw new ValidationAppException("Id este obligatoriu.");
 
             var category = await _repo.GetByIdAsync(id);
             if (category == null)
-                throw new ArgumentException("Category nu a fost gasita.");
+                throw new NotFoundAppException("Category nu a fost gasita.");
 
-            if (!string.IsNullOrWhiteSpace(req.Name))
+            var command = CategoryUpdateCommand.From(req);
+
+            if (command.Name.HasValue && !string.Equals(command.Name.Value.Value, category.Name, StringComparison.OrdinalIgnoreCase))
             {
-                var name = req.Name.Trim().ToLowerInvariant();
-                if (!string.Equals(name, category.Name, StringComparison.OrdinalIgnoreCase))
-                {
-                    var exists = await _repo.NameExistsAsync(name);
-                    if (exists)
-                        throw new ArgumentException("Category exista deja.");
-                }
-
-                category.Name = name;
+                var exists = await _repo.NameExistsAsync(command.Name.Value.Value);
+                if (exists)
+                    throw new ConflictAppException("Category exista deja.");
             }
+
+            command.ApplyTo(category);
 
             var updated = await _repo.UpdateAsync(category);
             return _mapper.Map<CategoryResponse>(updated);
         }
 
-        public async Task<bool> DeleteCategory(string id)
+        public async Task<bool> DeleteCategory(Guid id)
         {
-            if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException("Id este obligatoriu.");
+            if (id == Guid.Empty)
+                throw new ValidationAppException("Id este obligatoriu.");
 
             var success = await _repo.DeleteAsync(id);
             if (!success)
-                throw new ArgumentException("Category nu a fost gasita.");
+                throw new NotFoundAppException("Category nu a fost gasita.");
 
             return true;
         }
